@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeIsOnMySide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    
+    <label for="datumNarodenia">Vyber datum narodenia:</label>
+    <input type="date" id="datumNarodenia">
+    <button type="button" onclick="Vypocet()">Submit</button>
+    <p id="cas"></p>
+
+    <script>
+
+        function Vypocet(){
+
+            console.log("vypocet");
+
+            const d = new Date(document.getElementById("datumNarodenia").value);
+            
+            let rozdiel = ((Date.now() - d)/ 1000 / 60 / 60 / 24);
+           if (rozdiel < 0 ){
+            rozdiel = -rozdiel;
+           }
+           
+            console.log(Math.floor(rozdiel));
+
+
+            document.getElementById("cas").innerHTML = ("Narodeniny  budu za " + rozdiel + "  dni");
+    
+        }
+
+    </script>
+    
+</body>
+</html>
